@@ -1,0 +1,7 @@
+while(i<100)
+{
+	x=a[i];
+	if(x==0)
+		continue;
+	gtz++;
+}

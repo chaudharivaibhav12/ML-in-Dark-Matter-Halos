@@ -1,0 +1,37 @@
+Feature scaling is a method used to normalize the range of independent variables or features of data. In data processing, it is also known as data normalization and is generally performed during the data preprocessing step.
+
+SCALER
+
+STANDARD SCALAR
+The idea behind StandardScaler is that it will transform your data such that its distribution will have a mean value 0 and standard deviation of 1.
+In case of multivariate data, this is done feature-wise (in other words independently for each column of the data).
+Given the distribution of the data, each value in the dataset will have the mean value subtracted, and then divided by the standard deviation of the whole dataset (or feature in the multivariate case).
+
+halo mass peak, Halo mass and scale half mass approximately follow the
+Gaussian Distribution, therefore, I will use a standard scalar for feature scaling.
+
+MINMAX SCALAR
+A way to normalize the input features/variables is the Min-Max scaler. By doing so, all features will be transformed into the range [0,1] meaning that the minimum and maximum value of a feature/variable is going to be 0 and 1, respectively.
+
+Halo growth rate, Halo radius, halo spin, Concentration, scale peak mass, and stellar mass do not follow Gaussian distribution. Because of this we will be using a min-max scalar for them.
+
+
+Halo growth rate, halo radius, Concentration and halo spin remains ap-
+proximately constants as stellar mass increase. Hence we expect a small
+correlation between these features and stellar mass.
+
+
+In Batch Gradient Descent, the batch is taken to be
+the whole dataset.If we use the whole dataset we will reach the minima in a less noisy/random manner. But a problem arises when our database is very big, like a million samples in your dataset.So if we use normal gradient descent we will do calculations for one million samples to complete one iteration of Gradient Descent, and this will be repeated until the minima is reached. So this process is computationally very expensive to perform. This problem is solved by SGD where it uses batch size of 1, i.e only a single sample to perform each iteration. The samples are randomly shued and then selected for performing each iteration.
+
+we find out the gradient of the cost function with respect to a single example instead of the sum of the gradient of the cost function for all the examples. Since we use only one example at random from the dataset for each iteration, the path taken by it to reach minima is noisier
+than the general gradient descent algorithm. It doesn't matter much though as we reach the minima with significantly shorter training time. Even though it takes more iterations to reach the minima, it is still computationally much less expensive as computation for each iteration is much much less.
+
+The final evaluation of the model is done using the parameter of Random
+Forest obtained using GridSearch. The predicted RF values are then compared to the target values and we observe that both the values are approximately the same.
+
+
+I was able to predict the properties of the galaxy to a very accurate measure using the dataset of the dark halo. The machine learning model can be used to see how the Dark Halo model works and vice-versa. This acts as a standard to see how the dark halo model works and in correspondence with the Machine Learning Algorithm that we have used here.
+Since this model works, we can apply this model to a bigger scale for eg. if the dark halo model only works for spiral galaxies but if we make a few changes to this machine learning model and make it general enough, it will be able to work for all kinds or galaxies like spiral, elliptical etc. without specifying additional requirements.
+
+Since Machine Learning picks up on the various properties of data present in our dataset, this technique can be further worked on and perfected to get a model which will be able to predict the properties of galaxies irrespective of the type of the galaxy it is applied on.
